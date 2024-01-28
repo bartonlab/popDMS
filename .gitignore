@@ -1,0 +1,20 @@
+# Python files
+__pycache__
+.ipynb_checkpoints
+*/.ipynb_checkpoints
+
+# Local files
+old
+logomaker
+figures_slides.ipynb
+figures_slides.py
+figures/slides-*.pdf
+figures/old
+
+# Mac hidden files
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store
+*/*/*/*/.DS_Store
+*/*/*/*/*/.DS_Store
