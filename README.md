@@ -1,7 +1,6 @@
 # popDMS
 
-popDMS is a method developed by the [Barton lab](https://bartonlab.github.io) for inferring the functional effects of mutations from deep mutational scanning (DMS) experiments, also known as multiplexed assays for variant effects (MAVEs). Code for popDMS is written in Python3 and C++. For more information, see this preprint describing popDMS and its application to simulations and a variety of DMS data sets.
-
+popDMS is a method developed by the [Barton lab](https://bartonlab.github.io) for inferring the functional effects of mutations from deep mutational scanning (DMS) experiments, also known as multiplexed assays for variant effects (MAVEs). Code for popDMS is written in Python3 and C++. For more information, see [this preprint](https://www.biorxiv.org/content/10.1101/2024.01.29.577759v1) describing popDMS and its application to simulations and a variety of DMS data sets.
 
 ### Software dependencies
 
