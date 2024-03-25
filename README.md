@@ -6,12 +6,12 @@ popDMS is a method developed by the [Barton lab](https://bartonlab.github.io) fo
 
 Methods to infer epistasis are implemented in C++11 and make use of the [GNU Scientific Library](https://www.gnu.org/software/gsl/) and [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page).
 
-Version 3.4.0 of Eigen that we use can be downloaded from this [link](https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.zip). For epistasis inference, this file should be unzipped into the `epistasis/` directory. 
+Version 3.4.0 of Eigen that we use can be downloaded from this [link](https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.zip). For epistasis inference, this file should be unzipped into the `epistasis/` directory.
 
 
 ### Running popDMS
 
-popDMS uses codon counts in [dms_tools format](http://jbloomlab.github.io/dms_tools/fileformats.html#deep-mutational-scanning-counts-file) or sequence counts in [MaveDB-HGVS format](https://www.mavedb.org/docs/mavehgvs/) for input. For reference, [this link](https://github.com/bartonlab/paper-DMS-inference/blob/main/data/raw_data/FP16_DNA_codoncounts.csv) demonstrates the format for codon counts, and [this link](https://github.com/bartonlab/paper-DMS-inference/blob/main/data/raw_data/TpoR_nucleotide_counts.csv) shows an example file in MaveDB-HGVS format. 
+popDMS uses codon counts in [dms_tools format](http://jbloomlab.github.io/dms_tools/fileformats.html#deep-mutational-scanning-counts-file) or sequence counts in [MaveDB-HGVS format](https://www.mavedb.org/docs/mavehgvs/index.html) for input. For reference, [this link](https://github.com/bartonlab/paper-DMS-inference/blob/main/data/raw_data/FP16_DNA_codoncounts.csv) demonstrates the format for codon counts, and [this link](https://github.com/bartonlab/paper-DMS-inference/blob/main/data/raw_data/TpoR_nucleotide_counts.csv) shows an example file in MaveDB-HGVS format. 
 
 Running popDMS differs slightly depending on the format of the input data.
 
@@ -25,7 +25,7 @@ When using sequence counts, we require five variables: `haplotype_counts_file`, 
 
 #### Interpreting the output
 
-For both approaches, popDMS will compute and save the variant frequencies needed to calculate selection coefficients. Using these files, the code to infer the selection coefficients can quickly be rerun using the `infer_independent` (for codon counts) or `infer_correlated` (for sequence counts) methods. Both methods will save a compressed comma separated values (CSV) file containing the inferred selection coefficients at the inferred optimal value regularization strength. The file can be unzipped to be viewed in plain text or with a program such as Microsoft Excel. 
+For both approaches, popDMS will compute and save the variant frequencies needed to calculate selection coefficients. Using these files, the code to infer the selection coefficients can quickly be rerun using the `infer_independent` (for codon counts) or `infer_correlated` (for sequence counts) methods. Both methods will save a compressed comma separated values (CSV) file containing the inferred selection coefficients at the inferred optimal value regularization strength. The file can be unzipped to be viewed in plain text or with a program such as Microsoft Excel.
 
 The columns of the selection coefficient are:
 - `site`: Specifies the site at which the variant is observed, following the numbering of sites in the original input file
@@ -37,9 +37,9 @@ The columns of the selection coefficient are:
 This CSV file can be used for downstream analysis. We also provide a built-in plotting function `fig_dms` that takes a path to the CSV file as input and produces a heatmap of the inferred selection coefficients.
 
 
-### Epistasis inference: (already merged in one bash file to run automatically) 
+### Epistasis inference: (already merged in one bash file to run automatically)
 
-The format of input data for epistasis inference is described in [this file](epistasis_inference/README_bash.txt). Once data has been stored in this format, inference of epistatic interactions proceeds by running the shell script `run_epistasis.sh` in the `epistasis` directory. 
+The format of input data for epistasis inference is described in [this file](epistasis_inference/README_bash.txt). Once data has been stored in this format, inference of epistatic interactions proceeds by running the shell script `run_epistasis.sh` in the `epistasis` directory.
 
 
 # License
