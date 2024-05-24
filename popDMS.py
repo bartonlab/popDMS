@@ -413,7 +413,7 @@ def convert_codon_counts_to_variant_frequencies(dir, name, types, n_replicates, 
         codon_counts[type] = codon_list
     
     # Read in reference sequence
-    ref_seq = open(reference_sequence_file).read()
+    ref_seq = open(reference_sequence_file).read().split()[0]
     
     # Extract numbered sites from data and construct the reference sequence
     codon_length = 3
@@ -837,7 +837,7 @@ def compute_variant_frequencies(name, reference_sequence_file, haplotype_counts_
     ################################################################################
     
     # Read in reference sequence
-    ref_seq = open(reference_sequence_file).read()
+    ref_seq = open(reference_sequence_file).read().split()[0]
     
     # Compute and save counts for each experimental replicate
     replicates = [i+1 for i in range(n_replicates)]
@@ -1010,11 +1010,14 @@ def get_max_reads(freq_dir, name, replicates):
     Get maximum number of reads across all replicates.
     '''
     
-    max_reads = 1e2
+    max_reads = 1e5
     for rep in replicates:
-        df = pd.read_csv(get_reads_file(freq_dir, name, rep))
-        if np.max(df['reads'])>max_reads:
-            max_reads = np.max(df['reads'])
+        if os.path.isfile(get_reads_file(freq_dir, name, rep)):
+            df = pd.read_csv(get_reads_file(freq_dir, name, rep))
+            if np.max(df['reads'])>max_reads:
+                max_reads = np.max(df['reads'])
+        else:
+            print('No file %s, setting max_reads=%.2e' % (get_reads_file(freq_dir, name, rep), max_reads))
             
     return max_reads
 
