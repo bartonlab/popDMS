@@ -413,7 +413,7 @@ def convert_codon_counts_to_variant_frequencies(dir, name, types, n_replicates, 
         codon_counts[type] = codon_list
     
     # Read in reference sequence
-    ref_seq = open(reference_sequence_file).read().split()[0]
+    ref_seq = ''.join(open(reference_sequence_file).read().split())
     
     # Extract numbered sites from data and construct the reference sequence
     codon_length = 3
@@ -837,7 +837,7 @@ def compute_variant_frequencies(name, reference_sequence_file, haplotype_counts_
     ################################################################################
     
     # Read in reference sequence
-    ref_seq = open(reference_sequence_file).read().split()[0]
+    ref_seq = ''.join(open(reference_sequence_file).read().split())
     
     # Compute and save counts for each experimental replicate
     replicates = [i+1 for i in range(n_replicates)]
